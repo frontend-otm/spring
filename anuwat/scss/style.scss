@@ -1,0 +1,933 @@
+@mixin mq-up($size: default) {
+    @if $size == xs {
+        @media (min-width: 640px) { @content; }
+    } 
+    @else if $size == sm {
+        @media (min-width: 768px) { @content; }
+    } 
+    @else if $size == md {
+        @media (min-width: 1024px) { @content; }
+    } 
+    @else if $size == lg {
+        @media (min-width: 1200px) { @content; }
+    }
+    @else {
+        @media (min-width: 768px) { @content; }
+    }
+}
+
+@mixin mq-down($size: default) {
+    @if $size == xs {
+        @media (max-width: 639px) { @content; }
+    } 
+    @else if $size == sm {
+        @media (max-width: 767px) { @content; }
+    } 
+    @else if $size == md {
+        @media (max-width: 1023px) { @content; }
+    } 
+    @else if $size == lg {
+        @media (max-width: 1199px) { @content; }
+    }
+    @else {
+        @media (max-width: 767px) { @content; }
+    }
+}
+
+$green: #CCD7D5;
+$green2: #70989B;
+$yellow: #EFE5D7;
+$yellow2: #BCA08C;
+
+// Fonts
+@font-face {
+    font-family: 'AXIS Std';
+    src: url('/anuwat/fonts/axis/axisstd-regular.woff2') format('woff2'),
+        url('/anuwat/fonts/axis/axisstd-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AXIS Std M';
+    src: url('/anuwat/fonts/axis/axisstd-medium.woff2') format('woff2'),
+        url('/anuwat/fonts/axis/axisstd-medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AXIS Std B';
+    src: url('/anuwat/fonts/axis/axisstd-bold.woff2') format('woff2'),
+        url('/anuwat/fonts/axis/axisstd-bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AXIS Std L';
+    src: url('/anuwat/fonts/axis/axisstd-light.woff2') format('woff2'),
+        url('/anuwat/fonts/axis/axisstd-light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Optima";
+    font-style: normal;
+    font-weight: normal;
+    src: url("/anuwat/fonts/Optima/Optima.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Optima Bold";
+    font-style: normal;
+    font-weight: normal;
+    src: url("/anuwat/fonts/Optima/Optima_Bold.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Hiragino Sans";
+    font-style: normal;
+    font-weight: normal;
+    src: url("/anuwat/fonts/hiragino-sans/hiragino-sans-W7.woff") format("woff");
+}
+
+//Reset
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    border: 0;
+	outline: 0;
+    box-sizing: border-box;
+}
+
+//Normalize
+body {
+    font-family: 'AXIS Std';
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: 0.03em;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: top;
+}
+
+ul {
+    list-style: none;
+}
+
+//Utility
+.p-relative {
+    position: relative;
+}
+.overflow-hidden {
+    overflow: hidden;
+}
+
+//Container
+.container {
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: calc(1110px + 40px);
+    margin: auto;
+
+    .container {
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+// Custom slick
+.slick-list {
+    margin: 0 -5px;
+}
+
+.slick-slide {
+    margin: 0 5px;
+}
+
+.slick-dots {
+    display: flex;
+    gap: 7px;
+    position: static;
+    margin-top: 10px;
+
+    li {
+        width: auto;
+        height: auto;
+        padding: 0;
+        margin: 0;
+
+        &.slick-active {
+            button {
+                background: $green2;
+            }
+        }
+
+        button {
+            background: #E3E3E3;
+            width: 11px;
+            height: 11px;
+            padding: 0;
+            border-radius: 50%;
+            transition: 0.3s;
+
+            &::before {
+                display: none;
+            }
+        }
+    }
+
+    @include mq-up() {
+        li {
+            button {
+                width: 14px;
+                height: 14px;
+            }
+        }
+    }
+}
+.product__slider {
+    &--yellow {
+        .slick-dots {
+            li {
+                &.slick-active {
+                    button {
+                        background: $yellow2;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// TOP
+.top {
+    background: linear-gradient(90deg, $green 50%, $yellow 50%);
+    padding: 35px 0 65px;
+    position: relative;
+    &::before {
+        content: "OWNDAYS+ or Graph Belle";
+        font-family: "Optima Bold";
+        font-size: 59px;
+        line-height: 1;
+        white-space: nowrap;
+        position: absolute;
+        left: 0;
+        opacity: 0.05;
+        transform: rotate(90deg) translateY(-82%);
+        transform-origin: top left;
+        pointer-events: none;
+    }
+    &__img-wrap {
+        max-width: 450px;
+        margin: 0 auto;
+        position: relative;
+    }
+    &__logo-collab {
+        img {
+            display: block;
+            margin: 0 auto;
+            width: 176px;
+            position: relative;
+            z-index: 2;
+        }
+    }
+    &__img-main {
+        &-wrap {
+            overflow: hidden;
+            margin-top: -50px;
+        }
+    }
+    &__glasses-detail {
+        font-family: "Optima";
+        font-size: 14px;
+        position: absolute;
+        top: 24%;
+        right: 5%;
+        padding-left: 6px;
+        &::before {
+            content: "";
+            position: absolute;
+            top: 6px;
+            right: 100%;
+            width: 39px;
+            border-top: 1px solid #000;
+        }
+        small {
+            font-size: 10px;
+            display: block;
+            line-height: 1.3;
+            margin-top: 0.4em;
+        }
+    }
+    &__logo-spring {
+        position: absolute;
+        bottom: 8px;
+        right: 51px;
+    }
+    &__name {
+        position: absolute;
+        bottom: -18px;
+        left: 0;
+        letter-spacing: 0.02em;
+        h3 {
+            font-family: "Optima";
+            font-size: 23px;
+            font-weight: normal;
+            white-space: nowrap;
+            small {
+                font-size: 16px;
+                display: block;
+                margin-bottom: 8px;
+            }
+        }
+    }
+    &__detail {
+        font-family: 'AXIS Std';
+        font-size: 15px;
+        padding-top: 66px;
+        max-width: 550px;
+        margin: 0 auto;
+        
+        h2 {
+            font-family: 'AXIS Std';
+            font-size: 19px;
+            font-weight: normal;
+            line-height: 1.2;
+            letter-spacing: 0.04em;
+            margin-bottom: 22px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            span {
+                display: inline-block;
+                padding: 0.6em 0.9em;
+                background-color: #000;
+                color: #fff;
+                + span {
+                    margin-top: 6px;
+                    width: 100%;
+                    max-width: 410px;
+                }
+            }
+        }
+        p {
+            line-height: 2.2;
+        }
+    }
+
+    &__glasses-link {
+        display: none;
+    }
+
+    @include mq-up() {
+        &::before {
+            font-size: 59px;
+            display: table;
+            left: 0;
+            right: 0;
+            top: 50%;
+            margin: -50px auto 0;
+            transform: rotate(12deg) translateY(0) scale(1.5);
+            transform-origin: center;
+        }
+        &__img-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        &__logo-collab {
+            position: absolute;
+            top: 16%;
+            right: -30%;
+            img {
+                width: 205px;
+            }
+        }
+        &__img-main {
+            &-wrap {
+                margin-top: 0px;
+            }
+        }
+        &__name {
+            bottom: auto;
+            top: 120px;
+            text-align: center;
+            transform: translateX(-50%);
+            margin: 0 !important;
+            h3 {
+                font-size: 27px;
+                small {
+                    font-size: 20px;
+                }
+            }
+        }
+        &__logo-spring {
+            width: 93px;
+            left: 13.5%;
+            right: auto;
+            bottom: 10px;
+        }
+        &__glasses-detail {
+            display: none;
+        }
+        &__detail {
+            position: absolute;
+            top: 26%;
+            width: 37%;
+            h2 {
+                span {
+                    + span {
+                        max-width: none;
+                    }
+                }
+            }
+        }
+        &__glasses-link {
+            font-family: "Optima";
+            font-size: 20px;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 275px;
+            height: 238px;
+            background-color: rgba(#000,0.4);
+            text-align: center;
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+            transform: translateX(50%) scale(0.85);
+            margin-top: -120px;
+            position: relative;
+            color: inherit;
+            text-decoration: none;
+            transition: 0.3s;
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+                z-index: -1;
+            }
+
+            &::after {
+                width: calc(100% - 2px);
+                height: calc(100% - 2px);
+                top: 1px;
+                left: 1px;
+                background-color: #fff;
+            }
+            &-inner {
+                transition: 0.3s;
+            }
+            &:hover {
+                opacity: 0.75;
+            }
+
+            span,
+            small {
+                display: block;
+            }
+            small {
+                font-size: 12px;
+                margin-top: 5px;
+            }
+        }
+    }
+    @include mq-up(lg) {
+        &::before {
+            transform: rotate(12deg) translateY(0) scale(2);
+        }
+        &__img-wrap {
+            max-width: 625px;
+        }
+        &__img-main {
+            max-width: none;
+        }
+        &__logo-collab {
+            right: -43%;
+            img {
+                width: 337px;
+            }
+        }
+        &__name {
+            top: 200px;
+            h3 {
+                font-size: 33px;
+                small {
+                    font-size: 24px;
+                }
+            }
+        }
+        &__detail {
+            top: 44%;
+            width: 435px;
+            h2 {
+                font-size: 23px;
+                span {
+                    white-space: nowrap;
+                }
+            }
+        }
+        &__glasses-link {
+            transform: translateX(50%) scale(1);
+        }
+    }
+}
+
+.section__bg {
+    padding-top: 55px;
+    border: 20px solid #fff;
+    position: relative;
+    &::before {
+        font-family: "Optima";
+        font-size: 35px;
+        line-height: 1;
+        letter-spacing: 0.04em;
+        white-space: nowrap;
+        position: absolute;
+        bottom: -20px;
+        left: 0;
+        transform: rotate(90deg) translate(-100%,-27%);
+        transform-origin: top left;
+        pointer-events: none;
+        z-index: 3;
+    }
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    &-title {
+        font-family: "Optima";
+        font-size: 33px;
+        font-weight: normal;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        small {
+            font-family: "Hiragino Sans";
+            font-size: 14px;
+            display: inline-block;
+            font-weight: bold;
+            padding: 0.5em 1.5em;
+            vertical-align: top;
+        }
+    }
+    &-img-wrap {
+        padding: 5px;
+        margin: 2em 0;
+        border: 3px solid transparent;
+        position: relative;
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            z-index: 0;
+        }
+        &::before {
+            left: 0;
+            width: calc(100% - 24px);;
+            height: calc(100% + 6px);
+        }
+        &::after {
+            left: -3px;
+            width: calc(100% + 6px);;
+            height: calc(100% - 24px);
+        }
+        img {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+    }
+    &-detail {
+        h3 {
+            font-family: "Hiragino Sans";
+            font-size: 16px;
+            margin-bottom: 1em;
+        }
+        p {
+            font-family: 'AXIS Std';
+            font-size: 13px;
+            line-height: 2.46em;
+            margin-bottom: 1.5em;
+        }
+    }
+
+    &--green {
+        background-color: $green;
+        &::before {
+            content: "DAYLY / OWNDAYS+";
+            color: $green2;
+        }
+        .section__bg-title {
+            small {
+                background-color: $green2;
+                color: #fff;
+            }
+        }
+        .section__bg-img-wrap {
+            border-color: $green2;
+            &::before,
+            &::after {
+                background-color: $green;
+            }
+        }
+        .section__bg-detail {
+            h3 {
+                color: $green2;
+            }
+        }
+    }
+    &--yellow {
+        background-color: $yellow;
+        &::before {
+            content: "GO OUT / Graph Belle";
+            color: $yellow2;
+        }
+        .section__bg-title {
+            small {
+                background-color: $yellow2;
+                color: #fff;
+            }
+        }
+        .section__bg-img-wrap {
+            border-color: $yellow2;
+            &::before,
+            &::after {
+                background-color: $yellow;
+            }
+        }
+        .section__bg-detail {
+            h3 {
+                color: $yellow2;
+            }
+        }
+        .btn {
+            
+        }
+    }
+    @include mq-up() {
+        &-title {
+            font-size: 46px;
+            small {
+                font-size: 16px;
+                margin-bottom: 2em;
+            }
+        }
+        &-inner {
+            padding-top: 2.5em;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 30px;
+        }
+        &-detail {
+            order: -1;
+        }
+        .btn {
+            display: inline-block;
+            width: auto;
+            padding-right: 7em;
+        }
+    }
+    @include mq-up(lg) {
+        &::before {
+            font-size: 69px;
+            left: 16px;
+            bottom: -402px;
+        }
+        &-detail {
+            padding-right: 3em;
+            h3 {
+                font-size: 20px;
+            }
+            p {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+.btn {
+    font-family: 'AXIS Std';
+    font-size: 13px;
+    display: block;
+    width: calc(100% - 4px);
+    background: #fff url('/anuwat/images/arrow-right-green.svg') center right 17px no-repeat;
+    color: #000;
+    padding: 1.2em 3em 1.2em 2em;
+    text-decoration: none;
+    border: 1px solid $green2;
+    box-shadow: 4px 4px 0 $green2;
+    margin-bottom: 4px;
+    transition: 0.3s;
+    &:hover {
+        background-color: $green2;
+        background-image: url('/anuwat/images/arrow-right-white.svg');
+        color: #fff;
+        box-shadow: 2px 2px 0 #fff, 2px 2px 0 1px $green2;
+        transform: translateY(4px);
+    }
+    &--yellow {
+        background-image: url('/anuwat/images/arrow-right-yellow.svg');
+        border-color: $yellow2;
+        box-shadow: 4px 4px 0 $yellow2;
+        &:hover {
+            background-color: $yellow2;
+            color: #fff;
+            box-shadow: 2px 2px 0 $green2, 2px 2px 0 1px #707070;
+        }
+    }
+}
+
+.img-bottom {
+    margin: 4em -20px 0 0;
+    padding-left: 10px;
+    position: relative;
+    &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 52%;
+        left: 0;
+        bottom: 0;
+        background-color: #fff;
+    }
+    &-inner {
+        display: table;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+    }
+    &-logo {
+        width: 83px;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+    }
+    &.img-bottom--left {
+        margin: 4em 20px 0 0;
+        padding-left: 0;
+        .img-bottom-logo {
+            left: 10px;
+        }
+    }
+    @include mq-up() {
+        margin: 2em 0 0 0;
+        padding: 0 10px;
+        &::after {
+            height: 52%;
+        }
+        &-logo {
+            display: none;
+        }
+    }
+}
+
+//PRODUCT
+.product {
+    margin-bottom: 68px;
+    &__item {
+        &-inner {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            height: 100%;
+        }
+    }
+    &__head {
+        font-family: "Optima";
+        display: flex;
+        gap: 30px;
+        margin-bottom: 26px;
+        align-items: center;
+        h3 {
+            font-size: 26px;
+            font-weight: normal;
+            border-right: 1px solid #000;
+            padding-right: 30px;
+            small {
+                font-size: 12px;
+                display: block;
+                margin-top: 5px;
+            }
+        }
+        h4 {
+            font-size: 23px;
+            font-weight: normal;
+            small {
+                font-family: 'AXIS Std';
+                font-size: 13px;
+            }
+        }
+    }
+
+    p {
+        font-family: 'AXIS Std L';
+        font-size: 13px;
+        line-height: 2.46em;
+        margin: 0 0 3.5em;
+    }
+
+    .btn {
+        font-family: "Optima";
+        font-size: 16px;
+        width: 85%;
+        max-width: 305px;
+        display: table;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .img-bottom.img-bottom--left {
+        width: calc(100% + 20px);
+        margin-left: -20px;
+    }
+
+    @include mq-up() {
+        margin-bottom: 130px;
+        >.container {
+            display: flex;
+            max-width: 975px;
+        }
+        &__item {
+            width: 50%;
+            margin: 0 !important;
+            padding-left: 10px !important;
+            padding-right: 15px !important;
+
+            ~ .product__item {
+                padding-left: 15px !important;
+                padding-right: 10px !important;
+            }
+        }
+        .img-bottom {
+            display: none;
+        }
+        .btn {
+            margin-top: auto;
+        }
+    }
+    @include mq-up() {
+        &__item {
+            padding-left: 10px !important;
+            padding-right: 50px !important;
+
+            ~ .product__item {
+                padding-left: 50px !important;
+                padding-right: 10px !important;
+            }
+        }
+    }
+}
+
+//SHARE
+.share {
+    background-color: #000;
+    color: #fff;
+    padding: 57px 0;
+    text-align: center;
+    h4 {
+        font-family: "Optima";
+        font-size: 27px;
+        font-weight: 100;
+        padding: 13px 23px;
+        border: 1px solid #fff;
+        display: table;
+        margin: 0 auto;
+    }
+    &__link {
+        display: inline-flex;
+        gap: 26px;
+        margin-top: 35px;
+        >li {
+            background-color: #fff;
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            position: relative;
+            transition: 0.3s;
+            &:hover {
+                background-color: #BCA08C;
+                a {
+                    &::before {
+                        filter: invert(1);
+                    }
+                }
+            }
+            a {
+                text-decoration: none;
+                font-size: 0;
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: center no-repeat;
+                    transition: 0.3s;
+                }
+                &.fb {
+                    &::before {
+                        background-image: url('/anuwat/images/facebook.svg');
+                    }
+                }
+                &.tw {
+                    &::before {
+                        background-image: url('/anuwat/images/twitter.svg');
+                    }
+                }
+                &.li {
+                    &::before {
+                        background-image: url('/anuwat/images/line.svg');
+                    }
+                }
+            }
+        }
+    }
+    @include mq-up() {
+        padding: 66px 0;
+        margin-top: 130px;
+        >.container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            column-gap: 80px;
+        }
+        h4 {
+            font-size: 35px;
+            padding: 15px 27px;
+            margin: 0;
+        }
+        &__link {
+            margin-top: 0;
+        }
+    }
+    @include mq-up(lg) {
+        >.container {
+            column-gap: 138px;
+        }
+    }
+}
