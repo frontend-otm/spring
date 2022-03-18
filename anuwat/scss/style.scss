@@ -234,6 +234,9 @@ ul {
         margin: 0 auto;
         position: relative;
     }
+    &__img-shape {
+        
+    }
     &__logo-collab {
         img {
             display: block;
@@ -245,6 +248,7 @@ ul {
     }
     &__img-main {
         &-wrap {
+            clip-path: polygon(8% 0, 92% 0, 100% 8%, 100% 92%, 98% 100%, 8% 100%, 0 92%, 0 8%);
             overflow: hidden;
             margin-top: -50px;
         }
@@ -310,12 +314,15 @@ ul {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            span {
+            div {
                 display: inline-block;
                 padding: 0.6em 0.9em;
                 background-color: #000;
                 color: #fff;
-                + span {
+                span {
+                    display: block;
+                }
+                + div {
                     margin-top: 6px;
                     width: 100%;
                     max-width: 410px;
@@ -387,8 +394,8 @@ ul {
             top: 26%;
             width: 37%;
             h2 {
-                span {
-                    + span {
+                div {
+                    + div {
                         max-width: none;
                     }
                 }
@@ -472,10 +479,10 @@ ul {
         }
         &__detail {
             top: 44%;
-            width: 435px;
+            width: 455px;
             h2 {
                 font-size: 23px;
-                span {
+                div {
                     white-space: nowrap;
                 }
             }
@@ -618,9 +625,6 @@ ul {
                 color: $yellow2;
             }
         }
-        .btn {
-            
-        }
     }
     @include mq-up() {
         &-title {
@@ -694,6 +698,13 @@ ul {
             box-shadow: 2px 2px 0 $green2, 2px 2px 0 1px #707070;
         }
     }
+    &--custom {
+        border: 1px solid $yellow2;
+        &:hover {
+            background-color: $yellow2;
+            box-shadow: 2px 2px 0 $green2, 2px 2px 0 1px #707070;
+        }
+    }
 }
 
 .img-bottom {
@@ -712,6 +723,7 @@ ul {
     &-inner {
         display: table;
         margin: 0 auto;
+        overflow: hidden;
         position: relative;
         z-index: 2;
     }
@@ -749,6 +761,11 @@ ul {
             flex-direction: column;
             height: 100%;
             height: 100%;
+            > div {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+            }
         }
     }
     &__head {
@@ -931,3 +948,42 @@ ul {
         }
     }
 }
+
+[data-aos="scale-left"] {
+    opacity: 0;
+    transition-property: transform, opacity;
+    transform: scaleX(0);
+    transform-origin: top left;
+
+    &.aos-animate {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+  }
+
+  [data-aos="text-slide-left"] {
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        transition-property: transform;
+        transition-delay: 0.4s;
+        transition-duration: 0.4s;
+        transform-origin: top right;
+    }
+    &[data-aos-delay="600"] {
+        &::before {
+            transition-delay: 0.6s;
+        }
+    }
+    &.aos-animate {
+        &::before {
+            transform: scaleX(0);
+        }
+    }
+  }
