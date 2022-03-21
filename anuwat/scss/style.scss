@@ -817,7 +817,6 @@ ul {
         width: calc(100% + 20px);
         margin-left: -20px;
     }
-
     @include mq-up() {
         margin-bottom: 130px;
         >.container {
