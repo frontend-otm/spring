@@ -46,9 +46,11 @@
 *,
 ::after,
 ::before {
-  border-style: solid;
-  border-width: 0;
-  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+      box-sizing: border-box;
 }
 body,
 dd,
@@ -65,10 +67,9 @@ html,
 ol,
 p,
 ul {
-  margin: 0;
-  padding: 0;
+
   font-size: 100%;
-  scroll-behavior: smooth;
+
 }
 ul,
 li,
@@ -81,26 +82,27 @@ ol {
 table {
   border-collapse: collapse;
 }
-html {
-  font-size: 1rem;
-  -webkit-text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
-}
+
 body {
   background-color: #fff;
   font-family: "axis", serif;
   line-height: 1.4;
-  line-break: normal;
-  word-wrap: break-word;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
 }
 
 main div {
   display: block;
 }
 
-a:hover {
+a {
   text-decoration: none;
+  button{
+    cursor:pointer;
+  }  
 }
+
+
 img {
   max-width: 100%;
   height: auto;
@@ -142,7 +144,7 @@ spring__top
       font-weight: 500;
       position: absolute;
       top: 32%;
-      left: -270px;
+      left: -286px;
       font-size: 3em;
       transform: rotate(90deg);
       color: rgba(25, 25, 25, 0.048);
@@ -550,10 +552,10 @@ spring__top
     &__grouptext {
       &__p1 {
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        transform: translateX(37.9%) translateY(120%);
+        top: 15%;
+        left: auto;
+        right: 1rem;
+        transform: none;
 
         img {
           width: auto;
@@ -646,7 +648,7 @@ spring__dayly
     &-btn {
       width: 100%;
       font-size: 13px;
-      display: flex;
+      display: inline-flex;
       justify-content: space-between;
       padding: 1rem 2rem;
       border: 1px solid #70989b;
@@ -672,8 +674,14 @@ spring__dayly
         position: relative;
         right: 0px;
         left: 0;
-
         transform: translateX(-7%);
+
+        img:nth-child(2){
+          position: absolute;
+          left: 12%;
+          bottom: 4%;
+          width: 17%;
+        }
       }
     }
     &__top {
@@ -694,6 +702,15 @@ spring__dayly
       &__image {
         &-pc {
           display: none;
+          position: relative;
+
+          img:nth-child(2){
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+          }
         }
 
         &-sp {
@@ -702,6 +719,13 @@ spring__dayly
           left: 0;
           text-align: right;
           transform: translateX(7%);
+
+          img:nth-child(2){
+            position: absolute;
+            right: 6%;
+    bottom: 4%;
+    width: 17%;
+          }
         }
       }
     }
@@ -1162,7 +1186,7 @@ graph__belle
     &-btn {
       width: 100%;
       font-size: 13px;
-      display: flex;
+      display: inline-flex;
       justify-content: space-between;
       padding: 1rem 2rem;
       border: 1px solid #bca08c;
@@ -1189,8 +1213,14 @@ graph__belle
         position: relative;
         right: 0px;
         left: 0;
-
         transform: translateX(-7%);
+
+        img:nth-child(2){
+          position: absolute;
+          left: 12%;
+          bottom: 4%;
+          width: 17%;
+        }
       }
     }
     &__top {
@@ -1211,6 +1241,15 @@ graph__belle
       &__image {
         &-pc {
           display: none;
+          position: relative;
+
+          img:nth-child(2){
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+          }
         }
 
         &-sp {
@@ -1219,6 +1258,13 @@ graph__belle
           left: 0;
           text-align: right;
           transform: translateX(7%);
+
+          img:nth-child(2){
+            position: absolute;
+            right:6%;
+            bottom: 4%;
+            width: 17%;
+          }
         }
       }
     }
@@ -1450,7 +1496,7 @@ graph__belle
       left: 0;
       color: #bca08c;
       font-size: 69px;
-      transform: rotate(90deg) translateY(338.6%) translateX(230%);
+      transform: rotate(90deg) translateY(338.6%) translateX(170%);
     }
     &__bg {
       position: relative;
@@ -1593,3 +1639,25 @@ graph__belle
     }
   }
 }
+
+
+
+// Custom Slick
+
+.graph__belle{
+  .slick-dots {
+    li{
+      &.slick-active{
+        button{
+          &::before{
+            opacity: 9;
+            color: transparent;
+            background: #bca08c;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+  }
+}
+
