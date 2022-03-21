@@ -40,8 +40,9 @@
 @font-face {
   font-family: "hiragino";
   font-weight: 600;
-  src: url(../fonts/hiragino/ヒラギノ角ゴシックW6.ttc) format("ttc");
+  src: url(../fonts/hiragino/ヒラギノ角ゴシックW8.ttc) format("ttc");
 }
+
 
 *,
 ::after,
@@ -640,6 +641,8 @@ spring__dayly
     }
 
     h3 {
+      font-family: "hiragino";
+      font-weight: 600;
       color: #70989b;
       margin-bottom: 2rem;
       margin-top: 2rem;
@@ -1190,6 +1193,8 @@ graph__belle
     }
 
     h3 {
+      font-family: "hiragino";
+      font-weight: 600;
       color: #bca08c;
       margin-bottom: 2rem;
       margin-top: 2rem;
