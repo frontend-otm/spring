@@ -50,7 +50,7 @@
   padding: 0;
   border: 0;
   outline: 0;
-      box-sizing: border-box;
+  box-sizing: border-box;
 }
 body,
 dd,
@@ -67,9 +67,7 @@ html,
 ol,
 p,
 ul {
-
   font-size: 100%;
-
 }
 ul,
 li,
@@ -97,11 +95,10 @@ main div {
 
 a {
   text-decoration: none;
-  button{
-    cursor:pointer;
-  }  
+  button {
+    cursor: pointer;
+  }
 }
-
 
 img {
   max-width: 100%;
@@ -173,7 +170,7 @@ spring__top
     &__zoomin {
       display: table;
       margin: 0 auto;
-  
+
       overflow: hidden;
 
       img {
@@ -221,7 +218,7 @@ spring__top
     &-pc {
       display: none;
 
-      &:hover{
+      &:hover {
         opacity: 0.75;
         transition: 0.3s;
       }
@@ -409,9 +406,18 @@ spring__top
       &__zoomin {
         display: table;
         margin: 0 auto;
-        clip-path: polygon(77px 0px, 547px 0px, 626px 80px, 889px 461px, 548px 810px, 78px 811px, -2px 729px, -1px 79px);
+        clip-path: polygon(
+          77px 0px,
+          547px 0px,
+          626px 80px,
+          889px 461px,
+          548px 810px,
+          78px 811px,
+          -2px 729px,
+          -1px 79px
+        );
         overflow: hidden;
-  
+
         img {
           animation: zoominoutsinglefeatured 1.2s forwards;
         }
@@ -427,7 +433,7 @@ spring__top
         }
       }
     }
-    
+
     &__detail {
       position: absolute;
       top: auto;
@@ -477,16 +483,16 @@ spring__top
         top: 45%;
         left: 1rem;
         right: 0;
-  
+
         &__wrapper {
           display: flex;
           flex-direction: column;
-  
+
           &__swipe {
             position: relative;
             width: fit-content;
             font-size: 23px;
-  
+
             &:nth-child(1) {
               margin-bottom: 0.5rem;
               &::after {
@@ -500,7 +506,7 @@ spring__top
                 height: 100%;
                 background-color: #000;
                 animation: swipe 1s ease-out 1s forwards;
-              } 
+              }
             }
             &:nth-child(2) {
               &::after {
@@ -518,7 +524,7 @@ spring__top
               }
             }
           }
-  
+
           h1 {
             display: block;
             color: #fff;
@@ -530,7 +536,7 @@ spring__top
             opacity: 0;
             animation: fade 0.01s ease-out 1.75s forwards;
           }
-  
+
           h3 {
             display: block;
             color: #fff;
@@ -543,8 +549,6 @@ spring__top
             animation: fade 0.01s ease-out 2.25s forwards;
           }
         }
-  
-    
       }
     }
   }
@@ -676,7 +680,7 @@ spring__dayly
         left: 0;
         transform: translateX(-7%);
 
-        img:nth-child(2){
+        img:nth-child(2) {
           position: absolute;
           left: 12%;
           bottom: 4%;
@@ -700,11 +704,12 @@ spring__dayly
       }
 
       &__image {
+        
         &-pc {
           display: none;
           position: relative;
 
-          img:nth-child(2){
+          img:nth-child(2) {
             position: absolute;
             bottom: 20px;
             left: 0;
@@ -720,11 +725,11 @@ spring__dayly
           text-align: right;
           transform: translateX(7%);
 
-          img:nth-child(2){
+          img:nth-child(2) {
             position: absolute;
             right: 6%;
-    bottom: 4%;
-    width: 17%;
+            bottom: 4%;
+            width: 17%;
           }
         }
       }
@@ -958,7 +963,7 @@ spring__dayly
       position: absolute;
       left: 0;
       color: #70989b;
-      font-size: 69px;
+      font-size:50px;
       transform: rotate(90deg) translateY(328.6%) translateX(160%);
     }
     &__bg {
@@ -1101,6 +1106,17 @@ spring__dayly
       font-size: 20px;
     }
   }
+  @media screen and (min-width: 1200px){
+    &::before {
+      font-family: "optima", serif;
+      font-weight: 400;
+      position: absolute;
+      left: 0;
+      font-size: 69px;
+      color: #70989b;
+      transform: rotate(90deg) translateY(328.6%) translateX(160%);
+    }
+  }
 }
 
 /*--------------------------------------------------------------
@@ -1215,7 +1231,7 @@ graph__belle
         left: 0;
         transform: translateX(-7%);
 
-        img:nth-child(2){
+        img:nth-child(2) {
           position: absolute;
           left: 12%;
           bottom: 4%;
@@ -1243,7 +1259,7 @@ graph__belle
           display: none;
           position: relative;
 
-          img:nth-child(2){
+          img:nth-child(2) {
             position: absolute;
             bottom: 20px;
             left: 0;
@@ -1259,9 +1275,9 @@ graph__belle
           text-align: right;
           transform: translateX(7%);
 
-          img:nth-child(2){
+          img:nth-child(2) {
             position: absolute;
-            right:6%;
+            right: 6%;
             bottom: 4%;
             width: 17%;
           }
@@ -1495,7 +1511,7 @@ graph__belle
       position: absolute;
       left: 0;
       color: #bca08c;
-      font-size: 69px;
+      font-size: 50px;
       transform: rotate(90deg) translateY(338.6%) translateX(170%);
     }
     &__bg {
@@ -1638,18 +1654,28 @@ graph__belle
       font-size: 20px;
     }
   }
+
+  @media screen and (min-width: 1200px){
+    &::before {
+      font-family: "optima", serif;
+      font-weight: 400;
+      position: absolute;
+      left: 0;
+      color: #bca08c;
+      font-size: 69px;
+      transform: rotate(90deg) translateY(338.6%) translateX(170%);
+    }
+  }
 }
-
-
 
 // Custom Slick
 
-.graph__belle{
+.graph__belle {
   .slick-dots {
-    li{
-      &.slick-active{
-        button{
-          &::before{
+    li {
+      &.slick-active {
+        button {
+          &::before {
             opacity: 9;
             color: transparent;
             background: #bca08c;
@@ -1661,3 +1687,162 @@ graph__belle
   }
 }
 
+// Share
+
+.share {
+  background-color: #000;
+  color: #fff;
+  padding: 66px 0;
+  margin-top: 0rem;
+  text-align: center;
+h4{
+  font-family: "Optima";
+    font-size: 27px;
+    font-weight: 100;
+    padding: 13px 23px;
+    border: 1px solid #fff;
+    display: table;
+}
+
+  &__inner {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    column-gap: 80px;
+    row-gap: 20px;
+
+    &-link {
+      display: inline-flex;
+      gap: 26px;
+      
+      li {
+        background-color: #fff;
+        width: 62px;
+        height: 62px;
+        border-radius: 50%;
+        position: relative;
+    
+        transition: 0.3s;
+        &:hover{
+          background-color: #BCA08C;
+        border-radius: 50%;
+        }
+        a {
+          text-decoration: none;
+          font-size: 0;
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+              
+        transition: 0.3s;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: center no-repeat;
+            transition: 0.3s;
+          }
+          &:hover{
+            filter: invert(1);
+          }
+          &.fb {
+            &::before {
+              background-image: url(../images/facebook.svg);
+            }
+          }
+          &.tw {
+            &::before {
+              background-image: url(../images/twitter.svg);
+            }
+          }
+          &.li {
+            &::before {
+              background-image: url(../images/line.svg);
+            }
+          }
+        }
+     
+      }
+    }
+  }
+
+  @media screen and (min-width: 767px) {
+    margin-top: 4rem;
+
+
+    &__inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      column-gap: 80px;
+  
+      &-link {
+        display: inline-flex;
+        gap: 26px;
+        
+        li {
+          background-color: #fff;
+          width: 62px;
+          height: 62px;
+          border-radius: 50%;
+          position: relative;
+      
+          transition: 0.3s;
+          &:hover{
+            background-color: #BCA08C;
+          border-radius: 50%;
+          }
+          a {
+            text-decoration: none;
+            font-size: 0;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+                
+          transition: 0.3s;
+  
+            &::before {
+              content: "";
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: center no-repeat;
+              transition: 0.3s;
+            }
+            &:hover{
+              filter: invert(1);
+            }
+            &.fb {
+              &::before {
+                background-image: url(../images/facebook.svg);
+              }
+            }
+            &.tw {
+              &::before {
+                background-image: url(../images/twitter.svg);
+              }
+            }
+            &.li {
+              &::before {
+                background-image: url(../images/line.svg);
+              }
+            }
+          }
+       
+        }
+      }
+    }
+  }
+}
