@@ -94,10 +94,21 @@ main div {
   display: block;
 }
 
+
+
 a {
   text-decoration: none;
   button {
     cursor: pointer;
+    border: none;
+    margin: 0;
+    margin-bottom: 0.7rem;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    background: #fff;
+    color: #000;
+    font: inherit;
   }
 }
 
